@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --clr-neutral-900: hsl(207, 19%, 9%);
+  --clr-netural-100: hsl(0, 0%, 100%);
+  --clr-green-400: hsl(142, 90%, 61%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: var(--clr-neutral-100);
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+}
+
+#feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin-top: 1rem;
+}
+
+.card {
+  --padding: 1rem;
+  width: 70%;
+  padding: var(--padding);
+  color: var(--clr-netural-900);
+  position: relative;
+
+  transition: transform 500ms ease;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  left: var(--padding);
+  bottom: 0;
+  width: calc(100% - var(--padding) * 2);
+  height: 4px;
+  background: var(--clr-green-400);
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 500ms ease;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card-title {
+  flex: 2;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card:hover::after {
+  transform: scaleX(1);
+}
+
+.card-title p {
+  transform: translateY(200%);
+  transition: transform 500ms ease;
+}
+
+.card:hover .card-title p {
+  transform: translateY(0);
+  transition-delay: 100ms;
+}
